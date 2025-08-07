@@ -1,11 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.master" AutoEventWireup="true" CodeFile="ForgotPassword.aspx.cs" Inherits="ForgotPassword" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMaster.master" AutoEventWireup="true" CodeFile="ForgotPassword.aspx.cs" Inherits="Admin_ForgotPassword" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
-        <h3>Forgot Password</h3>
+         <h3>Forgot Password</h3>
 
 
     </div>
@@ -17,7 +16,9 @@
             <td>
                 <asp:TextBox ID="TxtUserName" runat="server" Width="200px"></asp:TextBox>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ControlToValidate="TxtUserName" ErrorMessage="Please Enter User Name" ForeColor="Red" ValidationGroup="GrpSubmit"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td>
@@ -26,7 +27,9 @@
             <td>
                 <asp:TextBox ID="TxtMobile" runat="server" Width="200px"></asp:TextBox>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="rfvMobile" runat="server" ControlToValidate="TxtMobile" ErrorMessage="Please Enter Mobile No" ForeColor="Red" ValidationGroup="GrpSubmit"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td>
@@ -35,12 +38,14 @@
             <td>
                 <asp:TextBox ID="TxtEmail" runat="server" Width="200px"></asp:TextBox>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="TxtEmail" ErrorMessage="Please Enter Email" ForeColor="Red" ValidationGroup="GrpSubmit"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:LinkButton ID="LnkBtnSendOtp" runat="server" OnClick="LnkBtnSendOtp_Click">Send OTP</asp:LinkButton>
+                <asp:LinkButton ID="LnkBtnSendOtp" runat="server">Send Otp</asp:LinkButton>
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -50,7 +55,6 @@
             </td>
             <td>
                 <asp:TextBox ID="TxtOtp" runat="server" Width="200px"></asp:TextBox>
-                <asp:Label ID="LblOtpValue" runat="server" ForeColor="Red"></asp:Label>
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -64,14 +68,14 @@
         <tr>
             <td>&nbsp;</td>
             <td>
-                <asp:Button ID="BtnSubmit" runat="server" Text="Submit" />
-                <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
+                <asp:Button ID="BtnSubmit" runat="server" Text="Submit" ValidationGroup="GrpSubmit" />
+                <asp:Button ID="BtnCancel" runat="server" Text="Cancel" OnClick="BtnCancel_Click" />
             </td>
             <td>&nbsp;</td>
         </tr>
     </table>
 
-    <asp:Panel ID="PnlChangePassword" runat="server" Visible="False">
+    <asp:Panel ID="PnlChangePassword" runat="server">
         <table style="width:100%;">
             <tr>
                 <td>
@@ -87,7 +91,9 @@
                 <td>
                     <asp:TextBox ID="TxtNewPassword" runat="server" Width="200px"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfvNewPassword" runat="server" ControlToValidate="TxtNewPassword" ErrorMessage="Please Enter New Password" ForeColor="Red" ValidationGroup="GrpSave"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td>
@@ -96,7 +102,9 @@
                 <td >
                     <asp:TextBox ID="TxtConfirmPassword" runat="server" Width="200px"></asp:TextBox>
                 </td>
-                <td ></td>
+                <td >
+                    <asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server" ControlToValidate="TxtConfirmPassword" ErrorMessage="Please Enter Confirm Password" ForeColor="Red" ValidationGroup="GrpSave"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td >&nbsp;</td>
@@ -108,13 +116,14 @@
             <tr>
                 <td >&nbsp;</td>
                 <td >
-                    <asp:Button ID="BtnSave" runat="server" Text="Save" Width="100px" />
-                    <asp:Button ID="BtnReset" runat="server" Text="Reset" Width="100px" />
+                    <asp:Button ID="BtnSave" runat="server" Text="Save" Width="100px" ValidationGroup="GrpSave" />
+                    <asp:Button ID="BtnReset" runat="server" Text="Reset" Width="100px" OnClick="BtnReset_Click" />
                 </td>
                 <td>&nbsp;</td>
             </tr>
         </table>
     </asp:Panel>
 
+    
 </asp:Content>
 

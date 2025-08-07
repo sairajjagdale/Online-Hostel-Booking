@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Admin_ForgotPassword : System.Web.UI.Page
+public partial class Admin_AddFee : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -13,10 +13,6 @@ public partial class Admin_ForgotPassword : System.Web.UI.Page
     }
     protected void BtnCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ForgotPassword.aspx");
-    }
-    protected void BtnReset_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ForgotPassword.aspx");
+        Response.Redirect("AddFee.aspx");
     }
 }
