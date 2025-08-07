@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMaster.master.cs" Inherits="UserMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+
+    <link href="css/UserMasterStyleSheet.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="page">
+            <div id="logo">
+                <asp:Image ID="logoImage" ImageUrl="~\\images\\Logo Hostel.jpg" ImageAlign="Middle" runat="server" />
+            </div>
+            <div class="header">
+                <div class="title"></div>
+                <div class="loginDisplay">
+
+                    <table style="width: 100%;">
+                        <tr>
+                            <td >
+                                <asp:Label ID="lblLastLogin" runat="server" ForeColor="#CC00CC"></asp:Label>
+                                <asp:Label ID="lblWelcome" runat="server" Font-Bold="True" Text="WELCOME!" ForeColor="#CC00CC"></asp:Label>
+                            </td>
+                            <td >
+                                <asp:ImageButton ID="ImgProfile" runat="server" BorderStyle="Solid" BorderWidth="1px" Height="30px" PostBackUrl="~/StudentProfile.aspx" ToolTip="View Profile" Visible="true" Width="30px" ImageUrl="~/Images/pic-1.png" />
+
+                            </td>
+                            <td >
+                                <table style="text-align: right;">
+                                    <tr>
+                                        <td style="text-align: left; width: 130px;">&nbsp;</td>
+                                        <td style="text-align: center; border: solid 1px; border-color: Orange; width: 80px;">
+                                            <asp:LinkButton ID="LnkBtnLogout" runat="server" ForeColor="Blue" Enabled="False"  Width="80px" OnClick="LnkBtnLogout_Click">Logout</asp:LinkButton>
+                                        </td>
+                                        <td style="text-align: center; border: solid 1px; border-color: Orange; width: 80px">
+                                            <asp:LinkButton ID="LnkBtnLogin" runat="server" ForeColor="Blue" PostBackUrl="~/Login.aspx" Width="80px">Login</asp:LinkButton>
+                                        </td>
+                                        <td style="text-align: center; border: solid 1px; border-color: Orange; width: 80px;">
+                                            <asp:LinkButton ID="LnkBtnSignUp" runat="server" ForeColor="Blue" PostBackUrl="~/StudentRegistration.aspx" Width="80px">SignUp</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>                           
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="clear HideSkipLink">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" Orientation="Horizontal" IncludeStyleBlock="false">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="Hostel.aspx" Text="Hostel"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="Student.aspx" Text="Student"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Admin/AdminHome.aspx" Text="Admin"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ContactUs.aspx" Text="Contact Us"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/AboutUs.aspx" Text="About Us"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <div class="clear"></div>
+            <div class="footer">
+                <ul>
+                    <li><a href="Home.aspx">Home</a> </li>
+                    <li><a href="Contact.aspx">ContactUs</a> </li>
+                    <li><a href="About.aspx">AboutUs</a> </li>
+                    <li><a href="Admin/AdminHome.aspx">Admin</a></li>
+                    
+                    
+                </ul>
+                <p>
+                    Copyright &copy ; All rights reserved. Designed by: 1.Sairaj 2.Rohit 3.Aniruddha
+                </p>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>
